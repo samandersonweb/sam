@@ -48,7 +48,6 @@ export default function Home() {
                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-4 uppercase">Projects<span className="text-primary italic">.</span></h2>
               </motion.div>
 
-              {/* Category Tabs */}
               <div className="flex flex-wrap gap-2 p-2 bg-zinc-900/50 border border-white/5 rounded-[1.5rem] md:rounded-[2rem] h-fit w-full md:w-fit">
                 {categories.map((cat) => (
                   <button

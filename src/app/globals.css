@@ -21,7 +21,6 @@
   --foreground: #fafafa;
 }
 
-/* Base resets & typography */
 html {
   scroll-behavior: smooth;
   @apply antialiased;
@@ -67,7 +66,6 @@ body {
     @apply max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24;
   }
 
-  /* Tactile Button Utilities */
   .btn-premium {
     @apply relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest rounded-3xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] shadow-[0_10px_30px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.3)] active:shadow-inner overflow-hidden;
   }
@@ -117,12 +115,10 @@ body {
   }
 }
 
-/* Refined Transitions */
 .reveal {
   @apply transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)];
 }
 
-/* Custom Scrollbar for Premium Feel */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;

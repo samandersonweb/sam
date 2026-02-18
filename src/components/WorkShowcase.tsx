@@ -40,7 +40,6 @@ export default function WorkShowcase() {
             onClick={(e: React.MouseEvent) => e.stopPropagation()}
             className="relative w-full max-w-5xl aspect-video rounded-[3rem] overflow-hidden bg-black border border-white/10 shadow-2xl"
           >
-            {/* Circular Close Icon */}
             <button
               onClick={toggleModal}
               className="absolute top-8 right-8 z-[1000000] close-circular"
@@ -64,7 +63,6 @@ export default function WorkShowcase() {
               playsInline
             />
 
-            {/* Architectural Progress Layer */}
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-white/5 overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
@@ -90,7 +88,6 @@ export default function WorkShowcase() {
         <Play size={28} className="fill-white transition-colors group-hover:fill-primary ml-1" />
       </motion.button>
 
-      {/* Portal the modal to body to bypass any parent clipping or stacking issues */}
       {mounted && typeof document !== 'undefined' ? createPortal(modalPart, document.body) : null}
     </>
   );

@@ -23,7 +23,6 @@ export default function GithubActivity() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center max-w-4xl mx-auto"
         >
-          {/* Header */}
           <div className="flex flex-col items-center gap-4 mb-10 text-primary">
             <div className="h-[2px] w-12 bg-current" />
             <span className="font-black uppercase tracking-[0.4em] text-[10px]">Open Source</span>
@@ -33,36 +32,23 @@ export default function GithubActivity() {
             GitHub <span className="text-gradient">Activity.</span>
           </h2>
 
-          {/* Profile & Graph Card */}
           <div className="w-full glass-card p-6 md:p-12 rounded-[2rem] md:rounded-[3.5rem] flex flex-col items-center gap-12 border border-white/5 relative group">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent rounded-[2rem] md:rounded-[3.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
 
-            {/* Circular Profile Pic */}
-            <motion.div
-              className="relative"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="relative">
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-[3px] border-white/10 shadow-2xl relative z-20 group">
                 <img
                   src="/profilepic.jpeg"
                   alt="Sam Anderson"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                 />
               </div>
 
-              {/* Spinning Architectural Ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-2 rounded-full border border-primary/20 border-dashed z-10"
-              />
+              <div className="absolute -inset-2 rounded-full border border-primary/30 z-10" />
 
-              {/* Dynamic Glow */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-30 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" />
-            </motion.div>
+              <div className="absolute -inset-6 bg-primary/10 rounded-full blur-2xl opacity-40 pointer-events-none" />
+            </div>
 
-            {/* Calendar Graph */}
             <div className="w-full overflow-hidden flex justify-center py-4 px-2">
               <div className="github-calendar-wrapper w-full max-w-full overflow-x-auto scrollbar-hide flex justify-center min-h-[150px]">
                 {mounted ? (
@@ -88,7 +74,6 @@ export default function GithubActivity() {
               </div>
             </div>
 
-            {/* Stats / CTA */}
             <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
               <a
                 href={`https://github.com/${username}`}
@@ -103,7 +88,6 @@ export default function GithubActivity() {
         </motion.div>
       </div>
 
-      {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none opacity-50" />
     </section>
   );

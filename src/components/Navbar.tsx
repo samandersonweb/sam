@@ -23,7 +23,6 @@ export default function Navbar() {
     const handleScroll = () => {
       const sections = ["home", "about", "projects", "skills", "github", "contact"];
 
-      // Special check for bottom of page
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
         setActiveSection("contact");
         return;
@@ -33,7 +32,6 @@ export default function Navbar() {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Logic: the section is active if its top is in the top 40% of the viewport
           return rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4;
         }
         return false;
@@ -43,13 +41,12 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      {/* Desktop Vertical Sidebar */}
       <nav className="fixed left-0 top-0 h-screen w-24 hidden lg:flex flex-col items-center justify-between py-12 z-50 border-r border-white/5 bg-zinc-950/20 backdrop-blur-3xl">
         <div />
 
@@ -72,12 +69,10 @@ export default function Navbar() {
                   {link.icon}
                 </div>
 
-                {/* Tooltip */}
                 <span className="absolute left-full ml-4 px-3 py-1 bg-white text-black text-[10px] font-black uppercase opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap rounded pointer-events-none tracking-widest">
                   {link.name}
                 </span>
 
-                {/* Active Indicator Dot */}
                 {isActive && (
                   <motion.div
                     layoutId="activeDot"
@@ -96,7 +91,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Sticky Top Header */}
       <nav className="fixed top-0 left-0 right-0 lg:hidden h-20 flex items-center justify-between px-6 z-[60] bg-zinc-950/80 backdrop-blur-xl border-b border-white/5">
         <Link href="/" className="group">
           <motion.p className="text-xl font-black tracking-tighter text-white">
@@ -111,7 +105,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Drawer Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>

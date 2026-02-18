@@ -20,15 +20,15 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4 md:space-y-6">
-              <a href="mailto:samandersonweb@yahoo.com" className="flex items-center gap-3 md:gap-4 text-xl md:text-3xl font-bold text-white hover:text-primary transition-colors group">
-                <span className="p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl group-hover:bg-primary/10 group-hover:border-primary/20 transition-all">
+              <a href="mailto:samandersonweb@yahoo.com" className="flex items-center gap-3 md:gap-4 text-lg sm:text-xl md:text-3xl font-bold text-white hover:text-primary transition-colors group break-all sm:break-normal">
+                <span className="shrink-0 p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl group-hover:bg-primary/10 group-hover:border-primary/20 transition-all">
                   <Mail size={24} />
                 </span>
                 samandersonweb@yahoo.com
               </a>
 
-              <a href="https://www.linkedin.com/in/samanderson99/" target="_blank" className="flex items-center gap-3 md:gap-4 text-xl md:text-3xl font-bold text-white hover:text-primary transition-colors group">
-                <span className="p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl group-hover:bg-primary/10 group-hover:border-primary/20 transition-all">
+              <a href="https://www.linkedin.com/in/samanderson99/" target="_blank" className="flex items-center gap-3 md:gap-4 text-lg sm:text-xl md:text-3xl font-bold text-white hover:text-primary transition-colors group">
+                <span className="shrink-0 p-3 md:p-4 bg-white/5 border border-white/5 rounded-xl md:rounded-2xl group-hover:bg-primary/10 group-hover:border-primary/20 transition-all">
                   <Linkedin size={24} />
                 </span>
                 LinkedIn Profile

@@ -1,51 +1,99 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+function ArchitectureScanner() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => setIsDesktop(window.innerWidth >= 1024);
+    checkSize();
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
+  return (
+    <div className="relative flex items-center justify-center lg:justify-start py-20">
+      <div className="relative z-20 w-full max-w-[280px] md:max-w-[380px] flex items-center justify-center">
+
+        <div className="relative aspect-[1/1.2] w-full rounded-[3rem] md:rounded-[5rem] overflow-hidden glass border-white/10 shadow-2xl z-20">
+          <img
+            src="/profilepic.jpeg"
+            alt="Sam Anderson"
+            className="w-full h-full object-cover grayscale brightness-110 contrast-125 transition-all duration-1000"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent opacity-80" />
+
+          <motion.div
+            animate={{ top: ["0%", "100%", "0%"] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute left-0 right-0 h-[2px] bg-primary/60 shadow-[0_0_15px_rgba(122,170,206,0.8)] z-30"
+          />
+
+          <motion.div
+            animate={{ left: ["0%", "100%", "0%"] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 bottom-0 w-[2px] bg-primary/40 shadow-[0_0_15px_rgba(122,170,206,0.6)] z-30"
+          />
+        </div>
+
+        {isDesktop && (
+          <div className="absolute inset-0 pointer-events-none" style={{ perspective: "1000px" }}>
+            <motion.div
+              animate={{
+                rotateX: [0, 10, -10, 0],
+                rotateY: [0, -10, 10, 0],
+                translateZ: [40, 60, 40]
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-8 border-2 border-primary/20 rounded-[4rem] md:rounded-[6rem] z-40"
+              style={{ transformStyle: "preserve-3d" }}
+            />
+
+            <motion.div
+              animate={{
+                rotateX: [0, -5, 5, 0],
+                rotateY: [0, 5, -5, 0],
+                translateZ: [-40, -20, -40]
+              }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-12 border-2 border-white/5 rounded-[5rem] md:rounded-[7.5rem] -z-10"
+              style={{ transformStyle: "preserve-3d" }}
+            />
+
+            <motion.div
+              animate={{
+                opacity: [0.2, 1, 0.2],
+                scale: [0.95, 1.05, 0.95]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary/60 z-50 rounded-tl-3xl"
+            />
+            <motion.div
+              animate={{
+                opacity: [0.2, 1, 0.2],
+                scale: [0.95, 1.05, 0.95]
+              }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+              className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/60 z-50 rounded-br-3xl"
+            />
+          </div>
+        )}
+
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+    </div>
+  );
+}
 
 export default function About() {
   return (
     <section id="about" className="py-24 md:py-40 bg-zinc-950/30">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16 md:gap-32 items-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-            className="relative flex items-center justify-center lg:justify-start group"
-          >
-            {/* The "Gallery" Frame */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-20"
-            >
-              {/* Main Image Mask */}
-              <div className="relative w-[300px] md:w-[380px] aspect-[1/1.2] rounded-[4rem] md:rounded-[6rem] overflow-hidden glass border-white/5 shadow-2xl">
-                <img
-                  src="/profilepic.jpeg"
-                  alt="Sam Anderson"
-                  className="w-full h-full object-cover grayscale brightness-110 contrast-125 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent opacity-60" />
-              </div>
-
-              {/* Floating Architectural Outline */}
-              <motion.div
-                animate={{ rotate: 180, scale: [1, 1.05, 1] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-4 border border-primary/20 rounded-[5rem] md:rounded-[7rem] pointer-events-none z-10"
-              />
-            </motion.div>
-
-            {/* Premium Light Burst */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[160px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-1000" />
-
-            {/* Minimal Decorative Text */}
-            <div className="absolute -left-12 top-1/2 -rotate-90 hidden xl:block">
-              <span className="text-[10px] font-black tracking-[0.8em] text-zinc-800 uppercase">Architecture / Precision</span>
-            </div>
-          </motion.div>
+          <ArchitectureScanner />
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
