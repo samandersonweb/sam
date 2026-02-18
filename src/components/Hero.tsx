@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDownRight, Globe, Linkedin, Github } from "lucide-react";
+import { ArrowDownRight, Linkedin, Github } from "lucide-react";
+import WorkShowcase from "./WorkShowcase";
 
 export default function Hero() {
   return (
@@ -25,9 +26,14 @@ export default function Hero() {
                 <div className="hidden md:block h-[1px] w-12 bg-zinc-800" />
               </div>
 
-              {/* Sophisticated Layered Typography */}
+              {/* Sophisticated Layered Typography - Now with spinning trigger next to name */}
               <h1 className="text-[14vw] md:text-[12vw] lg:text-[11vw] font-black leading-[0.8] tracking-tighter uppercase mb-12 md:mb-16">
-                Sam <br />
+                <span className="flex items-start justify-between w-full relative">
+                  <span>Sam</span>
+                  <div className="lg:hidden relative -top-[5vw] scale-75 pr-[5vw]">
+                    <WorkShowcase />
+                  </div>
+                </span>
                 <span className="text-gradient italic relative inline-block">
                   Anderson
                 </span>

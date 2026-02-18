@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Home, User, Briefcase, Mail, Cpu, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import WorkShowcase from "./WorkShowcase";
 
 const navLinks = [
   { name: "Home", href: "#home", icon: <Home size={20} /> },
@@ -50,11 +51,7 @@ export default function Navbar() {
     <>
       {/* Desktop Vertical Sidebar */}
       <nav className="fixed left-0 top-0 h-screen w-24 hidden lg:flex flex-col items-center justify-between py-12 z-50 border-r border-white/5 bg-zinc-950/20 backdrop-blur-3xl">
-        <div className="flex flex-col items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-            <span className="text-black font-black text-xl italic">M</span>
-          </div>
-        </div>
+        <div />
 
         <div className="flex flex-col gap-10">
           {navLinks.map((link, idx) => {
@@ -92,7 +89,11 @@ export default function Navbar() {
           })}
         </div>
 
-        <div className="pb-12" />
+        <div className="pb-12 flex flex-col items-center gap-8">
+          <div className="scale-[0.6] origin-center -mb-4">
+            <WorkShowcase />
+          </div>
+        </div>
       </nav>
 
       {/* Mobile Sticky Top Header */}
@@ -151,6 +152,12 @@ export default function Navbar() {
                 ))}
               </div>
 
+              <div className="mt-8 mb-12 flex flex-col items-center">
+                <p className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600 mb-6 text-center">Featured Showcase</p>
+                <div className="scale-90">
+                  <WorkShowcase />
+                </div>
+              </div>
               <div className="mt-auto pt-12 border-t border-white/5" />
             </motion.div>
           </>
