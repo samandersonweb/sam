@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Generate Project Placeholders</title>
+  <style>
+    canvas {
+      display: none;
+    }
+
+    .status {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="status">
+    <h2>Generating Project Placeholder Images...</h2>
+    <p id="progress">Starting...</p>
+  </div>
+  <canvas id="canvas" width="800" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const progress = document.getElementById('progress');
+
+    const projects = [
+      { name: 'project1', title: 'E-Commerce\nPlatform', gradient: ['#6366f1', '#8b5cf6'] },
+      { name: 'project2', title: 'Social Media\nDashboard', gradient: ['#8b5cf6', '#ec4899'] },
+      { name: 'project3', title: 'Task\nManagement', gradient: ['#3b82f6', '#6366f1'] },
+      { name: 'project4', title: 'Weather\nApp', gradient: ['#06b6d4', '#3b82f6'] },
+      { name: 'project5', title: 'Restaurant\nWebsite', gradient: ['#f59e0b', '#ec4899'] },
+      { name: 'project6', title: 'Fitness\nTracker', gradient: ['#ec4899', '#8b5cf6'] },
+      { name: 'project7', title: 'Blog\nPlatform', gradient: ['#6366f1', '#3b82f6'] },
+      { name: 'project8', title: 'Portfolio\nGenerator', gradient: ['#8b5cf6', '#6366f1'] },
+      { name: 'project9', title: 'Chat\nApplication', gradient: ['#3b82f6', '#8b5cf6'] },
+      { name: 'project10', title: 'Music\nPlayer', gradient: ['#ec4899', '#f59e0b'] },
+      { name: 'project11', title: 'Crypto\nTracker', gradient: ['#06b6d4', '#6366f1'] },
+      { name: 'project12', title: 'AI Image\nGenerator', gradient: ['#8b5cf6', '#ec4899'] }
+    ];
+
+    function createGradientImage(project, index) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          // Clear canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Create gradient background
+          const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+          gradient.addColorStop(0, project.gradient[0]);
+          gradient.addColorStop(1, project.gradient[1]);
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Add some decorative elements
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+          for (let i = 0; i < 5; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const radius = Math.random() * 100 + 50;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          // Add grid pattern
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+          ctx.lineWidth = 1;
+          for (let i = 0; i < canvas.width; i += 40) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, canvas.height);
+            ctx.stroke();
+          }
+          for (let i = 0; i < canvas.height; i += 40) {
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(canvas.width, i);
+            ctx.stroke();
+          }
+
+          // Add text
+          const lines = project.title.split('\n');
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+          ctx.font = 'bold 60px Inter, Arial';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+
+          const lineHeight = 70;
+          const startY = (canvas.height - (lines.length - 1) * lineHeight) / 2;
+
+          lines.forEach((line, i) => {
+            ctx.fillText(line, canvas.width / 2, startY + i * lineHeight);
+          });
+
+          // Add decorative icon/shape
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+          ctx.beginPath();
+          ctx.roundRect(canvas.width / 2 - 150, canvas.height - 150, 300, 100, 15);
+          ctx.fill();
+
+          // Convert to blob and download
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${project.name}.jpg`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            progress.textContent = `Generated ${index + 1} of ${projects.length}: ${project.name}.jpg`;
+            resolve();
+          }, 'image/jpeg', 0.95);
+        }, index * 500); // Delay between downloads
+      });
+    }
+
+    async function generateAll() {
+      for (let i = 0; i < projects.length; i++) {
+        await createGradientImage(projects[i], i);
+      }
+      progress.textContent = 'All images generated! Check your downloads folder.';
+      progress.style.color = 'green';
+    }
+
+    // Start generation after page loads
+    window.addEventListener('load', () => {
+      setTimeout(generateAll, 1000);
+    });
+  </script>
+</body>
+
+</html>

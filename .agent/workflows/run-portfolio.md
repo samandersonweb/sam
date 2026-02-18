@@ -1,0 +1,13 @@
+---
+description: How to run the premium portfolio project
+---
+// turbo-all
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open the browser to [http://localhost:3000](http://localhost:3000)

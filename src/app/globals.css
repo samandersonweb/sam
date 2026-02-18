@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7AAACE;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #5A8BB5;
+  --color-accent: #10b981;
+  
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  
+  --color-card: rgba(18, 18, 20, 0.7);
+  --color-card-foreground: #fafafa;
+  --color-border: rgba(255, 255, 255, 0.06);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+}
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  @apply antialiased;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+@layer base {
+  button, a {
+    @apply cursor-pointer outline-none;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-zinc-900/40 backdrop-blur-3xl border border-white/5 shadow-2xl;
+  }
+  
+  .glass-card {
+    @apply bg-zinc-900/30 backdrop-blur-2xl border border-white/5 shadow-inner transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-zinc-600;
+  }
+
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .section-padding {
+    @apply py-40 px-6;
+  }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24;
+  }
+
+  /* Tactile Button Utilities */
+  .btn-premium {
+    @apply relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest rounded-3xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] shadow-[0_10px_30px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.3)] active:shadow-inner overflow-hidden;
+  }
+
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 ease-in-out;
+  }
+
+  .btn-premium:hover::after {
+    @apply translate-x-full;
+  }
+
+  .btn-soft {
+    @apply px-10 py-5 bg-zinc-900/50 border border-white/5 text-white font-black uppercase tracking-widest rounded-3xl transition-all duration-500 hover:bg-zinc-800/80 hover:border-white/10 hover:shadow-[0_10px_20px_rgba(0,0,0,0.4)];
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* Refined Transitions */
+.reveal {
+  @apply transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)];
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800/50 rounded-full hover:bg-zinc-700/80 transition-colors border-2 border-transparent bg-clip-padding;
+}
+
+::selection {
+  @apply bg-primary/30 text-white;
+}
