@@ -66,21 +66,36 @@ export default function Home() {
 
             <motion.div
               layout
-              className="grid grid-cols-1 xl:grid-cols-2 gap-12"
+              className={filteredProjects.length > 0 ? "grid grid-cols-1 xl:grid-cols-2 gap-12" : "w-full"}
             >
               <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project) => (
+                    <motion.div
+                      key={project.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <ProjectCard project={project} />
+                    </motion.div>
+                  ))
+                ) : (
                   <motion.div
-                    key={project.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    className="w-full py-32 flex flex-col items-center justify-center glass-card rounded-[3rem] border-dashed border-white/10"
                   >
-                    <ProjectCard project={project} />
+                    <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center mb-8">
+                      <div className="w-10 h-10 border-2 border-primary/30 rounded-lg animate-pulse" />
+                    </div>
+                    <h3 className="text-2xl font-black uppercase tracking-tighter mb-4">No Projects Found<span className="text-primary">.</span></h3>
+                    <p className="text-zinc-500 font-medium">Coming soon... stay tuned for new updates!</p>
                   </motion.div>
-                ))}
+                )}
               </AnimatePresence>
             </motion.div>
           </div>
