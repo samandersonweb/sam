@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="p-10 pt-6 flex flex-col flex-grow">
         <div className="flex flex-col gap-2 mb-6">
           <div className="flex justify-between items-start gap-4">
-            <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase leading-none truncate">{project.title}</h3>
+            <h3 className="text-xl sm:text-2xl md:text-4xl font-black text-white tracking-tighter uppercase leading-tight">{project.title}</h3>
             <div className="flex gap-3 shrink-0">
               <a href={project.code} className="p-3 border border-white/5 rounded-2xl hover:bg-white/5 transition-all text-zinc-500 hover:text-white">
                 <Github size={20} />

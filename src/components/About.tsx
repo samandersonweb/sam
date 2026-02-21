@@ -106,7 +106,7 @@ export default function About() {
               <span className="font-black uppercase tracking-[0.4em] text-[10px]">About Me</span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-8 md:mb-12 tracking-tighter leading-[0.9] uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black mb-8 md:mb-12 tracking-tighter leading-[0.9] uppercase">
               Architecting <br />
               Complexity into <br />
               <span className="text-gradient font-black">Elegance.</span>

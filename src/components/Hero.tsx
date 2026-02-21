@@ -25,7 +25,7 @@ export default function Hero() {
                 <div className="hidden md:block h-[1px] w-12 bg-zinc-800" />
               </div>
 
-              <h1 className="text-[11vw] xs:text-[12vw] sm:text-[14vw] md:text-[12vw] lg:text-[11vw] font-black leading-[0.9] sm:leading-[0.85] md:leading-[0.8] tracking-tighter uppercase mb-12 md:mb-16">
+              <h1 className="text-[12vw] xs:text-[13vw] sm:text-[14vw] md:text-[12vw] lg:text-[11vw] font-black leading-[0.9] sm:leading-[0.85] md:leading-[0.8] tracking-tighter uppercase mb-12 md:mb-16">
                 <span className="flex items-start justify-between w-full relative">
                   <span>Sam</span>
                   <div className="lg:hidden relative -top-[2vw] scale-[0.6] sm:scale-75 pr-[2vw]">
