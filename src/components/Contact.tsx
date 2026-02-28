@@ -102,7 +102,7 @@ export default function Contact() {
             <input type="hidden" name="_subject" value="New Portfolio Inquiry!" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="http://localhost:3000/success" />
+            <input type="hidden" name="_next" value="https://samandersonweb.com/success" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative group">

@@ -122,7 +122,7 @@ export default function SuccessPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8 }}
         >
-          <Link href="/">
+          <Link href="https://samandersonweb.com" target="_blank">
             <motion.span
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
