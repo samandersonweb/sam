@@ -51,13 +51,22 @@ export default function Hero() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-4 md:mt-0">
-                  <a href="#projects" className="btn-premium flex items-center gap-6 group px-8 md:px-10 py-5 md:py-6 text-sm md:text-base">
-                    EXPLORE WORK
-                    <div className="relative overflow-hidden w-5 h-5 md:w-6 md:h-6">
-                      <ArrowDownRight size={20} className="group-hover:translate-x-full group-hover:-translate-y-full transition-all duration-500" />
-                      <ArrowDownRight size={20} className="absolute inset-0 -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 md:w-6 md:h-6" />
+                  <motion.a
+                    href="#projects"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative flex items-center gap-5 px-10 py-6 bg-white border border-white hover:border-primary text-black hover:text-white font-black uppercase tracking-[0.4em] text-xs rounded-none overflow-hidden transition-all duration-500 shadow-2xl"
+                  >
+                    <div className="absolute inset-0 bg-[#050505] translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
+                    <div className="absolute top-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 delay-100" />
+                    <div className="absolute bottom-0 right-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 delay-100" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
+                    <span className="relative z-20">Explore Work</span>
+                    <div className="relative z-20 w-5 h-5 flex items-center justify-center overflow-hidden">
+                      <ArrowDownRight size={18} className="absolute transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[250%] group-hover:-translate-y-[250%]" />
+                      <ArrowDownRight size={18} className="absolute -translate-x-[250%] translate-y-[250%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0 group-hover:translate-y-0" />
                     </div>
-                  </a>
+                  </motion.a>
 
                   <div className="flex items-center gap-3 md:gap-4">
                     <a href="https://www.linkedin.com/in/samanderson99/" target="_blank" className="p-4 md:p-5 bg-zinc-900/50 border border-white/5 rounded-2xl hover:bg-white text-zinc-400 hover:text-black transition-all duration-500">

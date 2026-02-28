@@ -44,4 +44,15 @@ export const projects: Project[] = [
     code: "https://github.com/samandersonweb/mohamed",
     category: "react"
   },
+  {
+    id: 4,
+    title: "Darsan Pharmacy",
+    description: "OptiMedicus simplifies medication management through evidence-based MTM services, helping patients and providers prevent medication-related harm.",
+    results: "Under construction the responsive part",
+    tags: ["React", "Tailwind"],
+    image: "/darsan.png",
+    link: "https://darsanrx.com",
+    code: "https://github.com/samandersonweb/darsanrx",
+    category: "website"
+  },
 ];

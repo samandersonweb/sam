@@ -114,11 +114,10 @@ export default function About() {
 
             <div className="space-y-6 md:space-y-10 text-lg md:text-xl text-zinc-400 leading-relaxed font-medium">
               <p>
-                I'm a mid-level expert in <span className="text-white">React.JS, Next.js, Express.JS,</span> and <span className="text-white">TypeScript</span>.
+                I'm a specialist in <span className="text-white">React.JS, Next.js,</span> and <span className="text-white">TypeScript</span> with a heavy focus on <span className="text-white">Pixel Perfect Design</span>.
                 I enjoy it a lot when I do code, having already built over 40 responsive websites with a focus
-                on clean architecture and user experience.
+                on clean architecture and design-to-code accuracy.
               </p>
-
             </div>
 
             <div className="grid grid-cols-2 gap-8 md:gap-12 mt-12 md:mt-20 pt-10 md:pt-16 border-t border-white/5">
